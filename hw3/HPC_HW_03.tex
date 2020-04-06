@@ -1,0 +1,117 @@
+% This is a template for doing homework assignments in LaTeX
+
+\documentclass[12pt]{article} % This command is used to set the type of document you are working on such as an article, book, or presenation
+
+\usepackage{geometry} % This package allows the editing of the page layout
+\usepackage{amsmath}  % This package allows the use of a large range of mathematical formula, commands, and symbols
+\usepackage{graphicx}  % This package allows the importing of images
+\usepackage{enumitem} % for change symbols in enumeration.
+\usepackage{array}
+\usepackage[table]{xcolor}
+\usepackage{longtable}
+\usepackage{amssymb}
+
+\newcommand{\question}[2][]{\begin{flushleft}
+        \textbf{Question #1}: \textit{#2}
+
+\end{flushleft}}
+\newcommand{\sol}{\textbf{Solution}:} %Use if you want a boldface solution line
+\newcommand{\maketitletwo}[2][]{\begin{center}
+        \Large{\textbf{Assignment #1}
+        
+        High Performance Computing} % Name of course here
+        \vspace{5pt}
+        
+        \normalsize{Chia-Hao Wu  % Your name here
+        
+        #2}        % Change to due date if preferred
+        \vspace{15pt}
+        
+\end{center}}
+\begin{document}
+    \maketitletwo[3]{}  % Optional argument is assignment number
+    %Keep a blank space between maketitletwo and \question[1]
+    
+    \question[2]{
+      develop an efficient way to evaluate the function outside of the interval $x \in [-\frac{\pi}{4}, \frac{\pi}{4}]$ using symmetries.\vspace{10pt}\\
+      \normalsize{The idea of implementation:}\vspace{5pt}\\
+      The sin function, $sin(x)$, is a periodic function with period $2\pi$, and $sin(x) = -sin(x + \pi).$ Thus, we can find a larger enough power of Taylor series with accuracy to 12-digits in $[-\pi, \pi]$ and use the periodic characteristic of the function to evaluate the function outside of the interval $x \in [-\frac{\pi}{4}, \frac{\pi}{4}]$. To elaborate it, $\forall x \in \mathbb{R}$, $\exists n \in \mathbb{Z}$ s.t. $x - (2n + 1)\pi \in [-\pi, \pi]$. In addition, n can be calculated by $\lfloor\frac{x}{2\pi}\rfloor$. Then, $\forall x \in \mathbb{R}$, we can calculate $n$ such that $x - (2n + 1)\pi \in [-\pi, \pi]$. Finally,we can calculate the approximation of $sin(x - (2n + 1)\pi)$ by using the larger enough power of Taylor series and  $sin(x) = -sin(x - (2n + 1)\pi)$.
+    }
+    
+    \question[3]{
+      Parallel Scan in OpenMP.\vspace{5pt}\\
+      \begin{enumerate}[label=\emph{(\arabic*)}]
+        \item {
+          The architecture you run it on
+          \vspace{5pt}\\
+          \begin{tabular}{|>{\centering\arraybackslash}p{3cm}|>{\centering\arraybackslash}p{0.6\textwidth}|}
+            \hline
+            \rowcolor{blue!90!yellow!20}Attribute Name & Value\\
+            \hline
+            Kernel name & Darwin\\
+            \hline
+            kernel-release & 19.3.0\\
+            \hline
+            kernel-version & Darwin Kernel Version 19.3.0: Thu Jan 9 20:58:23 PST 2020;\newline root:xnu-6153.81.5~1/RELEASE\_X86\_64\\
+            \hline
+            machine & x86\_64\\
+            \hline
+            processor & i386\\ [1ex]
+            \hline
+          \end{tabular}
+        }
+        \item {The number of cores of the processor\vspace{5pt}\\
+        2 physical cores(One processor with 2 cores) and 4 logical cores.
+        }
+        \item {
+          The time it takes\vspace{5pt}\\
+          N = 100,000,000\vspace{5pt}\\
+          Elapsed time of sequential-scan = 0.768196 s\vspace{5pt}\\
+          \begin{longtable}{|>{\centering\arraybackslash}p{3cm}|>{\centering\arraybackslash}p{0.6\textwidth}|}
+            \hline
+            \rowcolor{blue!90!yellow!20}Thread numbers & Elapsed time of parallel-scan (s)\\
+            \hline
+            2 & 0.339048\\
+            \hline
+            3 & 0.28607\\
+            \hline
+            4 & 0.243918\\
+            \hline
+            5 & 0.254444\\
+            \hline
+            6 & 0.243156\\
+            \hline
+            7 & 0.249474\\ 
+            \hline
+            8 & 0.248885\\ 
+            \hline
+            9 & 0.233481\\ 
+            \hline
+            10 & 0.251564\\ 
+            \hline
+            100 & 0.264672\\ 
+            \hline
+            200 & 0.274078\\ 
+            \hline
+            300 & 0.303070\\ 
+            \hline
+            400 & 0.291980\\ 
+            \hline
+            500 & 0.294022\\ 
+            \hline
+            600 & 0.322702\\ 
+            \hline
+            700 & 0.328262\\ 
+            \hline
+            1000 & 0.342116\\ 
+            \hline
+            1500 & 0.396556\\ 
+            \hline
+            1000 & 0.489136\\ [1ex]
+            \hline
+          \end{longtable}
+        }
+      \end{enumerate}
+    } 
+    
+\end{document}
