@@ -1,0 +1,57 @@
+% This is a template for doing homework assignments in LaTeX
+
+\documentclass[12pt]{article} % This command is used to set the type of document you are working on such as an article, book, or presenation
+
+\usepackage{geometry} % This package allows the editing of the page layout
+\usepackage{amsmath}  % This package allows the use of a large range of mathematical formula, commands, and symbols
+\usepackage{graphicx}  % This package allows the importing of images
+\usepackage{enumitem} % for change symbols in enumeration.
+\usepackage{array}
+\usepackage[table]{xcolor}
+\usepackage{longtable}
+\usepackage{amssymb}
+
+\newcommand{\question}[2][]{\begin{flushleft}
+        \textbf{Question #1}: \textit{#2}
+
+\end{flushleft}}
+\newcommand{\sol}{\textbf{Solution}:} %Use if you want a boldface solution line
+\newcommand{\maketitletwo}[2][]{\begin{center}
+        \Large{\textbf{#1}
+        
+        High Performance Computing} % Name of course here
+        \vspace{5pt}
+        
+        \normalsize{Chia-Hao Wu  % Your name here
+        
+        #2}        % Change to due date if preferred
+        \vspace{15pt}
+        
+\end{center}}
+\begin{document}
+    \maketitletwo[Final Project Proposal]{}  % Optional argument is assignment number
+    %Keep a blank space between maketitletwo and \question[1]
+    
+    \begin{flushleft}
+    Computer simulation has recently emerged as a third way in science besides the experimental and theoretical approaches. One of the critical applications is to study molecular systems, which can provide another insight into physics, material science, molecular biology, and drug discovery. However, it requires massive computing because of the quantitative level of molecular systems. In this project, I would like to apply the technique of High-performance computing in molecular dynamic simulations. The tasks are as follow:
+    \begin{enumerate}[label=\emph{Task \arabic*.}]
+        \item {
+          [The Linked Cell Method] The linked cell method is a method to approximately evaluate the forces and energies for rapidly decaying potentials. Implement this method by decomposing the simulation domain into cells with edges that are at least as long as the cutoff radius of the potential and computing the force parallel.
+          \vspace{5pt}\\
+        }
+        \item {[Collision of Two Bodies] Simulate a drop falls into a basin filled with fluid with N1 particles in the basin and N2 particles in the drop.\vspace{5pt}
+        }
+        \item {
+          [Rayleigh-Taylor Instability] Simulate the Rayleigh-Taylor instability, a fluid of higher density resides on top of a fluid with lower density while subjected to gravity, which is a well-known physical phenomenon in fluid dynamics and can be found inside exploding stars (supernovae) in astrophysics as well as in flow problems in microtechnology.\vspace{5pt}\\
+        }
+        \item {
+          [Many-Body Potentials] Parallelize the Brenner Potential and simulate the collision of dehydrobenzene with a buckyball.\vspace{5pt}\\
+        }
+        \item {
+          [System of Linear Molecules] Model intramolecular interactions in linear molecular systems. Simulate the intramolecular interactions in decane, the alkane of length ten in its gaseous phase and the diffusion of gas molecules in Alkanes.\vspace{5pt}\\
+        }
+      \end{enumerate}
+    \end{flushleft}
+    
+    
+\end{document}
