@@ -17,9 +17,9 @@ using std::string;
 #define OMP_BLOCK_SIZE 128
 #define GPU_GROUP_NUMBER 1024
 
-long m = 1;
-long n = 4;
-long l = 1;
+long m = 400;
+long n = 4000;
+long l = 400;
 
 int parallelThreadNum = 10;
 
