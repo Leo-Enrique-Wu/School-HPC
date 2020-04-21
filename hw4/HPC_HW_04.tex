@@ -1,0 +1,70 @@
+% This is a template for doing homework assignments in LaTeX
+
+\documentclass[12pt]{article} % This command is used to set the type of document you are working on such as an article, book, or presenation
+
+\usepackage{geometry} % This package allows the editing of the page layout
+\usepackage{amsmath}  % This package allows the use of a large range of mathematical formula, commands, and symbols
+\usepackage{graphicx}  % This package allows the importing of images
+\usepackage{enumitem} % for change symbols in enumeration.
+\usepackage{array}
+\usepackage[table]{xcolor}
+\usepackage{longtable}
+\usepackage{amssymb}
+
+\newcommand{\question}[2][]{\begin{flushleft}
+        \textbf{Question #1}: \textit{#2}
+
+\end{flushleft}}
+\newcommand{\sol}{\textbf{Solution}:} %Use if you want a boldface solution line
+\newcommand{\maketitletwo}[2][]{\begin{center}
+        \Large{\textbf{Assignment #1}
+        
+        High Performance Computing} % Name of course here
+        \vspace{5pt}
+        
+        \normalsize{Chia-Hao Wu  % Your name here
+        
+        #2}        % Change to due date if preferred
+        \vspace{15pt}
+        
+\end{center}}
+\begin{document}
+    \maketitletwo[4]{}  % Optional argument is assignment number
+    %Keep a blank space between maketitletwo and \question[1]
+    
+    \begin{flushleft}
+    The git repository is at https://github.com/Leo-Enrique-Wu/School-HPC\vspace{15pt}
+    \end{flushleft}
+    
+    \question[1]{
+      Matrix-vector operations on a GPU.\\
+      Report the memory band your code obtains on different GPUs.\vspace{5pt}\\
+      The method to calculate the memory bandwidth:\vspace{5pt}\\
+      Let $A$ to be an array with $n * m$ \\
+      \hspace{0.5cm}and $B$ to be an array with $m * l$\vspace{5pt}\\
+      Let $C = A * B$.\\
+      Total memory size(GB) $ = ((2(m * n * l) + (m * l)) * sizeof(double)) / 10^9$\\
+      Memory bandwidth $ = $ Total memory size $*$ elapsed time
+      \vspace{10pt}\\
+      \begin{tabular}{|>{\centering\arraybackslash}p{6cm}|>{\centering\arraybackslash}p{0.2\textwidth}|>{\centering\arraybackslash}p{0.3\textwidth}|}
+            \hline
+            \rowcolor{blue!90!yellow!20}GPU & Memory bandwidth(GB/s) & Server\\
+            \hline
+            Two GeForce GTX TITAN Black (6 GB memory each) & 13.23 & cuda1.cims.nyu.edu\\
+            \hline
+            Two GeForce RTX 2080 Ti (11 GB memory each) & 1620.89 & cuda2.cims.nyu.edu\\
+            \hline
+            Two TITAN V (12 GB memory each) & 69.85 & cuda3.cims.nyu.edu\\
+            \hline
+            Two GeForce GTX TITAN Z (12 GB memory each) & 13.82 & cuda5.cims.nyu.edu\\
+            \hline
+          \end{tabular}
+      \vspace{5pt}
+    }
+    
+    \question[3]{
+      Update on final projection.\vspace{5pt}\\
+      Working on the 1st task to implement the Linked Cell method. For now, I haven't run into problems.
+    } 
+    
+\end{document}
